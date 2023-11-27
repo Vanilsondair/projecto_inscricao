@@ -1,0 +1,127 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>  
+            {% block titulo  %}
+
+            {% endblock  %}</title> 
+
+          
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+            <link rel="stylesheet" type="text/css" href="{% static 'main/styles.css' %}">
+            
+
+        
+    <body>
+        <div class="d-flex flex-column wrapper principal">
+      
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm mb-3 " id="cabecalho">
+                <div class="container">
+                    <a class="navbar-brand" href="#">
+                        <img src="{% static 'imagens/Instituto-Superior-Politecnico-Tete (pequeno).png' %}" alt="Logo do Instituto">
+
+
+                    </a>
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{% url 'lista_cadeiras' %}">Principal</a>
+    </li>
+                            </li>
+                            
+                         
+                        </ul>
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a
+                                    class="nav-link dropdown-toggle"
+                                    href="#"
+                                    id="navbarDropdownMenuLink"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
+                                    Usuario
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="computador.html">Logo out<i class="bi bi-laptop"></i></a></li>
+                                    <li><a class="dropdown-item" href="celular.html">Alterar senha<i class="bi bi-house"></i></a></li>
+                                    <li><a class="dropdown-item" href="{% url 'cadeiras' %}">cadeiras inscritas<i class="bi bi-house"></i></a></li>
+                                  
+                                  
+                                </ul>
+                            </li>
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="contacto.html">Contacto</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Ajuda</a>
+                            </li>
+                        </ul>
+                    
+                        
+                    </div>
+                </div>
+            </nav>
+  
+            <main class="flex-fill ">
+                
+                {% block content  %}
+   
+                {% endblock  %}
+            </main>
+
+
+   <footer class="border-top text-muted ">
+    <div class="container">
+        <div class="row py-3">
+            <div class="col-12 col-md-4 text-center">
+                &copy;2023-Infotech online Ltda ME
+                <br>
+                N7,  Matundo/Tete
+                <br>
+                CNPJ 99.999.999/0001-99
+            </div>
+            <div class="ol-12 col-md-4 text-center">
+                <a href="privacidade.html" class="text-decoration-none text-dark"> Politica de privacidade</a>
+                <br>
+                <a href="termos.html" class="text-decoration-none text-dark">Termos de Uso</a>
+                <br>
+                <a href="quemsomos.html" class="text-decoration-none text-dark">Quem Somos</a>
+                <br>
+                <a href="trocas.html" class="text-decoration-none text-dark">Trocas e devoluções</a>
+            </div>
+            <div class="ol-12 col-md-4 text-center">
+                <a href="contacto.html" class="text-decoration-none text-dark">Contato pelo site</a>
+                <br>
+                <a href="mailto:email@dominio.com" class="text-decoration-none text-dark">Email@dominio.com</a>
+                <br>
+                Telefone:
+                <a href="phone:2993930020202" class="text-decoration-none text-dark"> (+255) 84 885 1208</a>
+            </div>
+        </div>
+    </div>
+
+</footer>
+</div>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    </body>
+</html>

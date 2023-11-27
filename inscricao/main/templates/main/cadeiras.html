@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+{% block titulo %}
+    Cadeiras Feitas
+{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Cadeiras Feitas</h1>
+    <form method="post">
+        {% csrf_token %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Cadeira</th>
+                    <th>Ano</th>
+                    <th>Semestre</th>
+                    <th>Excluir</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for inscricao in cadeiras_feitas %}
+                    <tr>
+                        <td>{{ inscricao.cadeira.nome }}</td>
+                        <td>{{ inscricao.cadeira.ano }}</td>
+                        <td>{{ inscricao.cadeira.semestre }}</td>
+                        <td>
+                            <form method="post" action="{% url 'excluir_cadeira' inscricao.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger" name="excluir_cadeira">Excluir</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </form>
+</div>
+{% endblock %}

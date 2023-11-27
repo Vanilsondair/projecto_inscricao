@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+
+
+.wrapper{
+    min-height: 100vh;
+}
+
+ body{
+    min-width: 372px;
+
+    overflow-x: hidden;
+    font-family: sans-serif;
+}
+
+ 
+      #cabecalho{
+          background-color: rgba(255, 255, 255, 0.993) !important;
+          position: fixed;
+          top: 0;
+          width: 100%;
+   
+          z-index: 9999;
+      }
+      main{
+        padding-top: 100px;
+      }
+      #cabecalho button{
+          background-color:#158127;
+          
+      } 
+      #navbarNav a{
+          color:#158127 !important ;
+      }
+      #navbarNav a:hover{
+          color:  #c4b70a !important ;
+      }
+   /* main/styles.css */
+
+.login-body {
+    background-color: #f8f9fa;
+}
+
+#login-card {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#login-card h1 {
+    color: #28a745;
+}
+
+#login-card button {
+    background-color: #218838;
+    color: #fff;
+}
+
+      
+     

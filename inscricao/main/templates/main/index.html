@@ -1,0 +1,137 @@
+{% extends 'main/base.html' %}
+{% block titulo  %}
+principal
+{% endblock  %}
+{% block content %}
+<div class="container">
+    {% if  periodo_inscricao_aberto %}
+      <h1>Lista de Cadeiras por Ano</h1>
+      {% if total_horas < 32 %}
+      
+    <div class="row">
+        <div class="col-md-3">
+            <h2>Primeiro Ano</h2>
+            <form method="post">
+                {% csrf_token %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Cadeira</th>
+                            <th>horas</th>
+                            <th>Selecionar</th>
+                          
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cadeira in primeiro_ano_cadeiras %}
+                            <tr>
+                                <td>{{ cadeira.nome }}</td>
+                                <td>{{ cadeira.horas}}</td>
+                                <td><input type="checkbox" name="cadeira_selecionada" value="{{ cadeira.id }}"></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <button type="submit" class="btn btn-success" name="submeter_primeiro_ano">Submeter Primeiro Ano</button>
+
+            </form>
+        </div>
+        
+        <div class="col-md-3">
+            <h2>Segundo Ano</h2>
+            <form method="post">
+                {% csrf_token %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Cadeira</th>
+                            <th>horas</th>
+                            <th>Selecionar</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cadeira in segundo_ano_cadeiras %}
+                            <tr>
+                                <td>{{ cadeira.nome }}</td>
+                                <td>{{ cadeira.horas}}</td>
+                                <td><input type="checkbox" name="cadeira_selecionada" value="{{ cadeira.id }}"></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <button type="submit" class="btn btn-success" name="submeter_segundo_ano">Submeter Segundo</button>
+            </form>
+        </div>
+        
+        <div class="col-md-3">
+            <h2>Terceiro Ano</h2>
+            <form method="post">
+                {% csrf_token %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Cadeira</th>
+                            <th>horas</th>
+                            <th>Selecionar</th>
+                          
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cadeira in terceiro_ano_cadeiras %}
+                            <tr>
+                                <td>{{ cadeira.nome }}</td>
+                                <td>{{ cadeira.horas}}</td>
+                                <td><input type="checkbox" name="cadeira_selecionada" value="{{ cadeira.id }}"></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <button type="submit" class="btn btn-success"   name="submeter_terceiro_ano">Submeter Terceiro Ano</button>
+            </form>
+        </div>
+        
+        <div class="col-md-3">
+            <h2>Quarto Ano</h2>
+            <form method="post">
+                {% csrf_token %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Cadeira</th>
+                            <th>horas</th>
+                            <th>Selecionar</th>
+                         
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cadeira in quarto_ano_cadeiras %}
+                            <tr>
+                                <td>{{ cadeira.nome }}</td>
+                                <td>{{ cadeira.horas }}</td>
+                                <td><input type="checkbox" name="cadeira_selecionada" value="{{ cadeira.id }}"></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <button type="submit" class="btn btn-success"  name="submeter_quarto_ano">Submeter Quarto Ano</button>
+            </form>
+        </div>
+    </div>
+    {% else %}
+    <div class="alert alert-danger">
+        <p>Atingiu limite total de 32 horas.</p>
+    </div>
+{% endif %}
+    {% else %}
+    
+    <div class="alert alert-danger">
+        <p>O período de inscrição findou. Você não pode mais se inscrever.</p>
+    </div>
+
+    {% endif %}
+</div>
+    
+{% endblock %}
+
+
